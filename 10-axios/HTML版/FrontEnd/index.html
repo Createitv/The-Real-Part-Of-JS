@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.css" rel="stylesheet">
+  <title>axios基本使用</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class='page-header'>基本使用</h2>
+    <button class="btn btn-primary">发送GET请求</button>
+    <button class="btn btn-warning">发送POST请求</button>
+    <button class="btn btn-success">发送PUT请求</button>
+    <button class="btn btn-danger">发送DELETE请求</button>
+  </div>
+  <script>
+    const btns = document.querySelectorAll("button");
+    // console.log(axios);
+    // GET请求
+    btns[0].onclick = () => {
+      axios({
+        method: 'GET',
+        url: "http://localhost:3000/posts"
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+    }
+
+    // POST 请求
+    btns[1].onclick = () => {
+      axios({
+        method: 'POST',
+        url: "http://localhost:3000/posts",
+        // 请求体
+        data: {
+          title: "今天是个好天气",
+          author: "createitv"
+        }
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+    }
+
+    // PUT请求
+    btns[2].onclick = () => {
+      axios({
+        method: 'PUT',
+        url: "http://localhost:3000/posts/3",
+        // 请求体
+        data: {
+          title: "今天好",
+          author: "createitvModify"
+        }
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+    }
+    // DELETE请求
+    btns[3].onclick = () => {
+      axios({
+        method: 'PUT',
+        url: "http://localhost:3000/posts/3",
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+    }
+
+  </script>
+</body>
+
+</html>
