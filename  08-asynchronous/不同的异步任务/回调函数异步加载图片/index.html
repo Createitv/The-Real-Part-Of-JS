@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>异步JS</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  console.log("加载开始");
+  function loadImage(source, resolve, reject) {
+    var image = new Image(100, 100)
+    image.src = source
+    image.onload = ()=>{
+      resolve(image)
+    }
+    image.onerror = reject
+    
+  }
+  loadImage("./assert/img.png", (image) => {
+    document.body.appendChild(image);
+    console.log("图片加载完成");
+  }, () => {
+    console.log("加载失败");
+  });
+  console.log("加载结束");
+</script>
+
+</html>
