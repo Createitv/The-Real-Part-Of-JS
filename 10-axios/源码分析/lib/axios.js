@@ -62,7 +62,7 @@ axios.spread = require('./helpers/spread');
 module.exports = axios;
 
 //简单实现全局暴露 axios
-window.axios = axios;
+// window.axios = axios;
 
 // Allow use of default import syntax in TypeScript
 module.exports.default = axios;
