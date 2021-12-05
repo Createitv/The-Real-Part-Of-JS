@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // this全局指向window
+    console.log(this);
+    // fun函数直接作用于全局对象，this指向window
+    function fun() {
+      console.log(this);
+    }
+    fun()
+    // this执行调用方法的对象
+    let dog = {
+      name: "旺财",
+      sayName() {
+        console.log("我是" + this.name);
+      }
+    }
+    dog.sayName()
+    // 构造函数this指向实例对象
+    function F() {
+      this.name = "xiaoming"
+    }
+    let f = new F()
+    console.log(f);
+
+
+    // 记时器的this指向window
+    let cat = {
+      name: "喵喵",
+      sayName() {
+        setInterval(function () {
+          console.log(this);
+        }, 1000)
+      }
+    }
+    // cat.sayName()
+
+    /*
+    箭头函数的this
+    1. 普通函数谁调用指向谁，箭头函数在哪里定义指向谁
+    2. 箭头函数外指向谁就是谁
+    3. 箭头函数中没有this
+
+    */
+    let fish = {
+      name: "小鱼儿",
+      sayName() {
+        // console.log(this);
+        setInterval(()=>{
+          console.log(this);
+        },1000)
+      }
+    }
+    fish.sayName()
+  </script>
+</body>
+
+</html>
