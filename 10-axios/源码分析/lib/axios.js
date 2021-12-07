@@ -30,9 +30,7 @@ function createInstance(defaultConfig) {
     // 将实例对象的方法和属性扩展到 instance 函数身上
     utils.extend(instance, context);
 
-    return instance;
-}
-// axios.interceptors
+    return instance;f23d
 
 // Create the default instance to be exported
 // 通过配置创建 axios 函数
